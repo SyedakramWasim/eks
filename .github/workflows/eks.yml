@@ -20,9 +20,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1  # or your region
 
-      - name: Install dependencies 
-        run:  npm install
-      - name: Build the project
-        run:  npm run build
+      
       - name: Sync to S3
-        run: aws s3 sync ./your-build-folder s3://your-s3-bucket-name --delete 
+        run: aws s3 sync ./build s3://eks-s3-bucket1-bucket --delete 
